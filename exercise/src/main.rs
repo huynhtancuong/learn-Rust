@@ -1,10 +1,36 @@
-fn multiply(x: i16, y: i16) -> i16 {
-    x * y
+// TODO: remove this when you're done with your implementation.
+// #![allow(unused_variables, dead_code)]
+
+fn transpose(matrix: [[i32; 3]; 3]) -> [[i32; 3]; 3] {
+    let mut transposed = [[0; 3]; 3];
+    for i in 0..3 {
+        for j in 0..3 {
+            transposed[j][i] = matrix[i][j];
+        }
+    }
+    transposed
+}
+
+fn pretty_print(matrix: &[[i32; 3]; 3]) {
+    for row in matrix {
+        for value in row {
+            print!("{} ", value);
+        }
+        println!();
+    }
 }
 
 fn main() {
-    let x: i8 = 15;
-    let y: bool = true;
+    let matrix = [
+        [101, 102, 103], // <-- the comment makes rustfmt add a newline
+        [201, 202, 203],
+        [301, 302, 303],
+    ];
 
-    println!("{x} * {y} = {}", multiply(i16::from(x), y.into()));
+    println!("matrix:");
+    pretty_print(&matrix);
+
+    let transposed = transpose(matrix);
+    println!("transposed:");
+    pretty_print(&transposed);
 }
