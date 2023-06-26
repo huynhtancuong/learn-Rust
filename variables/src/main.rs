@@ -6,6 +6,8 @@ fn main() {
         .expect("Age was not a number!");
     // Rust allows to have variables with the same name in different data types.
     // Which is called shadowing
+    // Shadowing is different from mutation, because after shadowing both variables memory
+    // location exist at the same time. Both are avaiable under the same name, depending where we use it in the code.
     age += 1;
     println!("I'm {} years old and I want ${}", age, ONE_MIL);
 }
